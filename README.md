@@ -1,3 +1,7 @@
+Odkaz na hlavní dataset - edinburgh bikes; soubor je nahrán na google drive úložišti (soubor má cca 100 MB)
+https://drive.google.com/file/d/1mx_sWbF8ER2HJNAYjqsOTFQr4GzlqWX9/view?usp=sharing
+
+
 # Pandas_project_engeto
 Data analysis - Bike rentals in Edinburgh
 
