@@ -1,6 +1,7 @@
 # Data analysis - Bike rentals in Edinburgh
 
-Výstup je bez spouštění kódu nahlédutí v rámci streamlit aplikace: [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/tomas-weber1994/pandas_project_engeto_data_academy/main/App_streamlit.py)
+Výstup lze je bez spouštění kódu nahlédutí v rámci streamlit aplikace: [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/tomas-weber1994/pandas_project_engeto_data_academy/main/App_streamlit.py)
+Po spuštění aplikace a správné zobrazení výstupů je třeba kliknout na pravý horní roh - Settings - Wide mode.
 
 
 ### Zadání:
