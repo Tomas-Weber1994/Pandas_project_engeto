@@ -1,7 +1,7 @@
 # Data analysis - Bike rentals in Edinburgh
 
 ### Streamlit aplikace
-Výstup projektu je bez spouštění kódu k nahlédutí v rámci streamlit aplikace: [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/tomas-weber1994/pandas_project_engeto_data_academy/main/App_streamlit.py)
+Výstup projektu je bez spouštění kódu k nahlédutí v rámci Streamlit aplikace: [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/tomas-weber1994/pandas_project_engeto_data_academy/main/App_streamlit.py)
 
 Po spuštění aplikace a správné zobrazení výstupů je třeba kliknout na pravý horní roh - Settings - zaškrtout Wide mode.
 
@@ -27,10 +27,12 @@ Analýza poptávky:
   - půjčují si lidé kola více o víkendu než během pracovního týdne?
 
 ### Postup:
+Většinu času jsem pracoval v rámci Jupyter Notebooku, později jsem obsah jednotlivých buněk nakopíroval do vývojářského prostředí Visual Studio Code a dodal odpovídající kód nutný k funkčnosti aplikace Streamlit. Výsledný skript ve vscode nebyl původně v plánu, prospělo by mu zpřehlednění (např. za pomoci definování vlastních funkcí, kód se občas opakuje s mírnými změnami).
 
-Nejprve bylo třeba načíst data ze souboru "edinburgh_bikes.csv" (všechny datasety jsou dostupné v repozitáři). Jedná se o data obsahující informace o výpůjčkách kol ve městě Edinburgh (zejména jméno počáteční a koncové stanice, jejich souřadnice a výpujční doba).
+Úplně na začátku bylo třeba načíst data ze souboru "edinburgh_bikes.csv" (všechny datasety jsou dostupné v repozitáři). Jedná se o data obsahující informace o výpůjčkách kol ve městě Edinburgh (zejména jméno počáteční a koncové stanice, jejich souřadnice a výpujční doba).
 Data jsem neprve vyčistil - některé sloupce bylo třeba převést na odpovídající datový typ, zkontroloval jsem nulové hodnoty (zjištěny pouze v rámci nepodstatných popisných sloupců), z dat jsem následně vybral pouze relevantní sloupce související se zadáním projektu, ty pak později vhodně přejmenoval. Chyby v datech jsem nepozoroval. 
 
-Do listů jsem uložil jména všech aktivních a neaktivních výpujčních stanic. Jako neaktivní stanici jsem si definoval tu, ve které nedošlo k žádné výpůjčce (a vrácení) v posledním měsíci. V rámci deskriptivní části projektu jsem pak pracoval pouze s daty očištěnými o neaktivní stanice. Spočítal jsem celkový počet zápůjček a vrácení kol na každou aktivní stanici (za sledované období 2018 - 2021, ale i průměrně za den). Následně jsem identifikoval stanice, na kterých dochází k převisu půjčených a vrácených kol.Tyto údaje jsem vizualizoval v rámci plotly a matplotlibu.
+Do listů jsem uložil jména všech aktivních a neaktivních výpujčních stanic. Jako neaktivní stanici jsem si definoval tu, ve které nedošlo k žádné výpůjčce (a vrácení) v posledním měsíci. V rámci deskriptivní části projektu jsem pak pracoval pouze s daty očištěnými o neaktivní stanice. Spočítal jsem celkový počet zápůjček a vrácení kol na každou aktivní stanici (za sledované období 2018 - 2021, ale i průměrně za den). Následně jsem identifikoval stanice, na kterých dochází k převisu půjčených a vrácených kol.Tyto údaje jsem vizualizoval v rámci plotly a matplotlibu. Údaje o výpůjčkách a vrácení lze filtrovat pomocí jména stanice v rámci aplikace Streamlit.
 
+Následně jsem na základě souřadnic jednotlivých stanic vytvořil matici vzájemných vzdáleností v km. Také jsem ke každé stanici našel jinou, která je jí nejblíže. Na základě matice vzáleností je možné v rámci Streamlit aplikace spočítat vzdálenost mezi libovolnými stanicemi. Ke shlédnutí je také mapa obsahující umístění všech stanic v Edinburghu vč. údajů o jejich výpůjčkách za den (je patrný vliv umístění v centru a na předměstí).
 
