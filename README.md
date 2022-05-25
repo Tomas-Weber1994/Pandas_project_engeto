@@ -5,6 +5,7 @@ Výstup projektu je bez spouštění kódu k nahlédutí v rámci streamlit apli
 
 Po spuštění aplikace a správné zobrazení výstupů je třeba kliknout na pravý horní roh - Settings - zaškrtout Wide mode.
 
+Pro shlédnutí kódu a detailnějších výsledků si doporučuji do počítače z repozitáře stáhnout finální jupyter notebook a nainstalovat si knihovny ze souboru "requirements.txt".
 
 ### Zadání:
 
@@ -24,3 +25,7 @@ Analýza poptávky:
   - identifikujte příčiny výkyvů poptávky
   - zjistěte vliv počasí na poptávku po kolech (údaje o počasí v Edinburghu jsou v tabulce edinburgh_weather)
   - půjčují si lidé kola více o víkendu než během pracovního týdne?
+
+### Postup:
+
+Pracoval jsem zejména v Jupyter notebooku.
