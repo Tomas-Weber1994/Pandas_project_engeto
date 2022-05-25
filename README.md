@@ -31,4 +31,6 @@ Analýza poptávky:
 Nejprve bylo třeba načíst data ze souboru "edinburgh_bikes.csv" (všechny datasety jsou dostupné v repozitáři). Jedná se o data obsahující informace o výpůjčkách kol ve městě Edinburgh (zejména jméno počáteční a koncové stanice, jejich souřadnice a výpujční doba).
 Data jsem neprve vyčistil - některé sloupce bylo třeba převést na odpovídající datový typ, zkontroloval jsem nulové hodnoty (zjištěny pouze v rámci nepodstatných popisných sloupců), z dat jsem následně vybral pouze relevantní sloupce související se zadáním projektu, ty pak později vhodně přejmenoval. Chyby v datech jsem nepozoroval. 
 
-Do listů jsem uložil jména všech aktivních a neaktivních výpujčních stanic. Jako neaktivní stanici jsem si definoval tu, ve které nedošlo k žádné výpůjčce v posledním měsíci. V rámci deskriptivní části projektu jsem pak pracoval pouze s daty očištěnými o neaktivní stanice.  
+Do listů jsem uložil jména všech aktivních a neaktivních výpujčních stanic. Jako neaktivní stanici jsem si definoval tu, ve které nedošlo k žádné výpůjčce (a vrácení) v posledním měsíci. V rámci deskriptivní části projektu jsem pak pracoval pouze s daty očištěnými o neaktivní stanice. Spočítal jsem celkový počet zápůjček a vrácení kol na každou aktivní stanici (za sledované období 2018 - 2021, ale i průměrně za den). Následně jsem identifikoval stanice, na kterých dochází k převisu půjčených a vrácených kol.Tyto údaje jsem vizualizoval v rámci plotly a matplotlibu.
+
+
