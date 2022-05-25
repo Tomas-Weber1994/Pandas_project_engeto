@@ -27,6 +27,8 @@ Analýza poptávky:
   - půjčují si lidé kola více o víkendu než během pracovního týdne?
 
 ### Postup:
+
+##### Explorace dat a deskriptivní statistiky
 Většinu času jsem pracoval v rámci Jupyter Notebooku, později jsem obsah jednotlivých buněk nakopíroval do vývojářského prostředí Visual Studio Code a dodal odpovídající kód nutný k funkčnosti aplikace Streamlit. Výsledný skript ve vscode nebyl původně v plánu, prospělo by mu zpřehlednění (např. za pomoci definování vlastních funkcí, kód se občas opakuje s mírnými změnami).
 
 Úplně na začátku bylo třeba načíst data ze souboru "edinburgh_bikes.csv" (všechny datasety jsou dostupné v repozitáři). Jedná se o data obsahující informace o výpůjčkách kol ve městě Edinburgh (zejména jméno počáteční a koncové stanice, jejich souřadnice a výpujční doba).
@@ -38,6 +40,17 @@ Následně jsem na základě souřadnic jednotlivých stanic vytvořil matici vz
 
 K zobrazení rozložení četností výpůjčních dob kol jsem využil histogram v rámci knihovny matplotlib. V datech byly nicméně extrémní hodnoty (histogram měl velmi vysoký rozsah hodnot a nebylo možné jej rozumným způsobem zobrazit), proto jsem zobrazil v rámci histogramu pouze hodnoty očištěné o extrémy, ty jsem si definoval jako hodnoty větší nebo menší než tři směrodatné odchylky od průměru (jedná se o např. výpůjční dobu třiceti dní, která výrazně vybočovala). I po očištění dat lze na výsledném histogramu vidět, že většina výpůjček netrvá ani hodinu, rozložení četností výpujčních dob je zprava zešikmené.
 
+##### Analýza poptávky
 Poté jsem se zabýval tím, které faktory mohou mít dopad na četnost výpůjček kol. Nejprve jsem v knihovně altair (jedná se o moji oblíbenou knihovnu) zobrazil četnosti výpůjčkek po jednotlivých měsících v rámci sledovaného období (zřetelně lze vidět dopad sezónnosti na výpůjčky). Data byla zapotřebí samozřejmě neprve vhodně upravit a seskupit. Stejný graf je k nahlédnutí také ve Streamlit, přičemž lze opět filtrovat jednotlivé stanice podle jména a srovnávat je tak mezi sebou. Doplňkově jsem data následně seskupil dle jednotlivých měsíců v roce a hodnoty zprůměroval, graf je nicméně velmi podobný. 
 
 Vzhledem k tomu, že data o výpůjčkách kol pochází z období 2018 - 2021, napadlo mě posoudit vliv onemocnění Covid-19 na výpůjčky kol. Údaje o Covid-19 jsou dostupné v tabulce "covid19_UK.csv" (data vychází z tabulky celosvětových covidových údajů, data jsem pomocí SQL pouze vyfiltroval podle země; v tomto případě UK). Bohužel jsem neměl k dispozici data pouze z města Edinburgh, vycházím tak z celostátních údajů. Tabulku jsem spojil s původním datasetem, odstranil jsem chyby v hodnotách (záporný počet nakažených) a vytvořil korelační matici - patrná je negativní souvislost četností výpůjček kol a pozitivních testů (potažmo úmrtí), přičemž korelace je středně silná. Tento vztah jsem zobrazil za pomoci scatterplotu v rámci knihovny altair. Graf jsem proložil regresní přímkou, v tomto případě datům odpovídala exponenciální funkce.
+
+Poté jsem zkoumal, jaká je souvislost mezi počasím a četností výpůjček kol. Tabulku "edinburgh_weather.csv" jsem proto na základě konkrétního data propojil s původním datasetem vycházejícím z "edinburgh_bikes.csv". Data bylo třeba následně opět vyčistit, převést na správné datové typy, přejmenovat sloupce i hodnoty atp. Následně jsem opět vytvořil korelační matici, ze které vyplývá středně silná pozitivní souvislost mezi teplotou a četností výpůjček kol, dále také menší (ale nezanedbatelné) záporné souvislosti mezi vlhkostí vzduchu, sílou větru a četností výpůjček kol. I v tomto případě jsem data vizualizoval za pomoci scatterplotu.
+
+Vhodnou úpravou dat a za pomoci jednoduchého sloupcového grafu jsem zjistil, že o víkendu se kola půjčují v průměru o 14 % více než přes týden. Na základě těchto uvedených souvislostí jsem se pokusil vytvořit predikci četností půjčených kol. 
+
+##### Predikce počtu výpůjček
+K predikci četností kol jsem musel všechny tři tabulky nejprve spojit dohromady - zde již je limitem výraznější redukce dat vzhledem k tomu, že jednotlivé tabulky nevychází ze zcela stejných sledovaných období. Pro zajímavost jsem si opět vygeneroval korelační matici, v rámci které mě zaujalala zejména vyšší korelace mezi teplotou a četností půjčených kol (v tomto případě se jedná o období spojené s Covid-19). Mojí hypotézou je, že souvislost mezi teplotou a četností půjčených kol je během covidu vyšší vzhledem k tomu, že teplota (respektive období v roce) také souvisí s počtem pozitivních testů, potažmo úmrtími. 
+
+Predikce vychází z modulu sklearn, pracuji s tzv. testovací a trénovací částí datasetu. Do predikčního modelu jsem zahrnul pouze ty sloupce, které přispěly k menšímu rozptylu chyb - jedná se o počet pozitivních testů v daném dni, počet úmrtí na onemocnění Covid-19, teplotu, vlhkost vzduchu, sílu větru, velikost srážek, konkrétní měsíc v roce a rozlišení, zda se jedná o den v týdnu nebo víkend. V rámci Streamlit aplikace si uživatel volí jednotlivé parametry, aplikace následně odhaduje počet vypůjčených kol za uvedených podmínek. V případě zadání kombinace nepříznivých parametrů (např. velmi vysoký počet pozitivních testů, nízká teplota a vybrání zimního měsíce), docházelo k tomu, že odhad půjčených kol byl záporný. Tuto skutečnost jsem se snažil ošetřit v kódu, který běží na pozadí Streamlit aplikace.
+
