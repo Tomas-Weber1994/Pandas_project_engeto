@@ -3,7 +3,7 @@
 ### Streamlit aplikace
 Výstup projektu je bez spouštění kódu k nahlédutí v rámci Streamlit aplikace: [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/tomas-weber1994/pandas_project_engeto_data_academy/main/App_streamlit.py)
 
-Po spuštění aplikace a správné zobrazení výstupů je třeba kliknout na pravý horní roh - Settings - zaškrtout Wide mode.
+Po spuštění aplikace je pro správné zobrazení výstupů třeba kliknout na pravý horní roh - Settings - zaškrtout Wide mode.
 
 Pro shlédnutí kódu a detailnějších výsledků si doporučuji do počítače z repozitáře stáhnout jupyter notebook ("Engeto_pandas_project_final_notebook.ipynb") a nainstalovat si knihovny ze souboru "requirements.txt".
 
