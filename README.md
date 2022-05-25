@@ -5,7 +5,7 @@ Výstup projektu je bez spouštění kódu k nahlédutí v rámci streamlit apli
 
 Po spuštění aplikace a správné zobrazení výstupů je třeba kliknout na pravý horní roh - Settings - zaškrtout Wide mode.
 
-Pro shlédnutí kódu a detailnějších výsledků si doporučuji do počítače z repozitáře stáhnout finální jupyter notebook a nainstalovat si knihovny ze souboru "requirements.txt".
+Pro shlédnutí kódu a detailnějších výsledků si doporučuji do počítače z repozitáře stáhnout jupyter notebook ("Engeto_pandas_project_final_notebook.ipynb") a nainstalovat si knihovny ze souboru "requirements.txt".
 
 ### Zadání:
 
@@ -28,4 +28,7 @@ Analýza poptávky:
 
 ### Postup:
 
-Pracoval jsem zejména v Jupyter notebooku.
+Nejprve bylo třeba načíst data ze souboru "edinburgh_bikes.csv" (všechny datasety jsou dostupné v repozitáři). Jedná se o data obsahující informace o výpůjčkách kol ve městě Edinburgh (zejména jméno počáteční a koncové stanice, jejich souřadnice a výpujční doba).
+Data jsem neprve vyčistil - některé sloupce bylo třeba převést na odpovídající datový typ, zkontroloval jsem nulové hodnoty (zjištěny pouze v rámci nepodstatných popisných sloupců), z dat jsem následně vybral pouze relevantní sloupce související se zadáním projektu, ty pak později vhodně přejmenoval. Chyby v datech jsem nepozoroval. 
+
+Do listů jsem uložil jména všech aktivních a neaktivních výpujčních stanic. Jako neaktivní stanici jsem si definoval tu, ve které nedošlo k žádné výpůjčce v posledním měsíci. V rámci deskriptivní části projektu jsem pak pracoval pouze s daty očištěnými o neaktivní stanice.  
