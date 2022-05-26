@@ -434,7 +434,7 @@ elif page == 'Causes of fluctuation in demand':
     ).interactive()
             
     st.altair_chart(chart4, use_container_width = True)
-    st.write(f"Temperature and number of rented bikes per day seems to be moderately corelated: r = {temperature_rentals_correlation}")
+    st.write(f"Temperature and number of rented bikes per day seem to be moderately corelated: r = {temperature_rentals_correlation}")
     st.markdown("##### Correlation matrix - other significant correlations")
     st.write(correlation_matrix.loc[["humidity_in_pct", "wind_km/h"], "rentals_per_day"])
 
