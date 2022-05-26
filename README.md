@@ -5,7 +5,7 @@ Výstup projektu je bez spouštění kódu k nahlédutí v rámci Streamlit apli
 
 Po spuštění aplikace je pro správné zobrazení výstupů třeba kliknout na pravý horní roh - Settings - zaškrtout Wide mode.
 
-Pro shlédnutí kódu a detailnějších výsledků si doporučuji do počítače z repozitáře stáhnout jupyter notebook "Engeto_pandas_project_final_notebook.ipynb" a nainstalovat si knihovny ze souboru "requirements.txt".
+Pro shlédnutí kódu a detailnějších výsledků si doporučuji do počítače z repozitáře stáhnout jupyter notebook "Engeto_pandas_project_final_notebook.ipynb" a nainstalovat si knihovny ze souboru "requirements.txt". Zde na Githubu se všechna okna notebooku bohužel nenačítají.
 
 ### Zadání:
 
