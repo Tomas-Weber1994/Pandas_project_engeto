@@ -20,7 +20,6 @@ Coby datový analytik jste součástí týmu, který na projektu pracuje. Vaší
  - jak dlouho trvá jedna výpůjčka? Najděte odlehlé hodnoty, zobrazte histogram
 
 Analýza poptávky:
-
   - zobrazte vývoj poptávky po půjčování kol v čase
   - identifikujte příčiny výkyvů poptávky
   - zjistěte vliv počasí na poptávku po kolech (údaje o počasí v Edinburghu jsou v tabulce edinburgh_weather)
