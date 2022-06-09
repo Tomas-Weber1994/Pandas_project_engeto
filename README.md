@@ -1,4 +1,4 @@
-# Data analysis - Bike rentals in Edinburgh
+# Data Analysis (Pandas) - Bike Rentals in Edinburgh
 
 ### Streamlit aplikace
 Výstup projektu je bez spouštění kódu k nahlédutí v rámci Streamlit aplikace: [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/tomas-weber1994/pandas_project_engeto_data_academy/main/App_streamlit.py)
